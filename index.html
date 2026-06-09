@@ -295,6 +295,7 @@
   .menu-section-btns { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1.5rem 0 2rem; }
   .menu-section-btn { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.75); padding: 0.4rem 1rem; border-radius: 30px; font-size: 0.82rem; cursor: pointer; font-family: 'Inter', sans-serif; font-weight: 500; transition: 0.2s; text-decoration: none; display: inline-block; }
   .menu-section-btn:hover { background: rgba(184,134,11,0.25); border-color: var(--gold); color: var(--gold-light); }
+  .menu-section-btn.active-section { background: var(--gold); border-color: var(--gold); color: var(--dark); font-weight: 600; }
   .menu-item {
     background: var(--dark);
     padding: 1.25rem 1.5rem;
@@ -440,16 +441,19 @@
     </div>
     <div class="features-grid">
       <div class="feature-card">
+        <div class="feature-icon">🍺</div>
         <h3>Full Bar</h3>
         <p>Cold drafts, reasonably priced cocktails, and your favorite spirits. A friendly bartender and good conversation always included.</p>
         <a href="#menu">See drink menu →</a>
       </div>
       <div class="feature-card">
-        <h3>Great Kitchen</h3>
+        <div class="feature-icon">🍽️</div>
+        <h3>Real Kitchen</h3>
         <p>Seafood platters, pasta dishes, hearty sandwiches, and pub classics — all made fresh. Roast beef, ground beef, and turkey prepared on premises.</p>
         <a href="#menu">See food menu →</a>
       </div>
       <div class="feature-card">
+        <div class="feature-icon">🎱</div>
         <h3>Games &amp; Take-Out</h3>
         <p>Pool tables and dart boards for a proper local pub night. Full menu available to take out — great for feeding a group at home too.</p>
         <a href="#location">Get in touch →</a>
@@ -492,80 +496,81 @@
     </div>
 
     <div class="menu-section-btns" id="food-section-btns">
-      <a href="#sec-appetizers" class="menu-section-btn">Appetizers</a>
-      <a href="#sec-salads" class="menu-section-btn">Salads</a>
-      <a href="#sec-sea" class="menu-section-btn">From the Sea</a>
-      <a href="#sec-pasta" class="menu-section-btn">Pasta</a>
-      <a href="#sec-platters" class="menu-section-btn">Platters</a>
-      <a href="#sec-sandwiches" class="menu-section-btn">Sandwiches &amp; Hoagies</a>
-      <a href="#sec-sides" class="menu-section-btn">Side Orders</a>
+      <button class="menu-section-btn active-section" onclick="filterSection('all', this)">All</button>
+      <button class="menu-section-btn" onclick="filterSection('appetizers', this)">Appetizers</button>
+      <button class="menu-section-btn" onclick="filterSection('salads', this)">Salads</button>
+      <button class="menu-section-btn" onclick="filterSection('sea', this)">From the Sea</button>
+      <button class="menu-section-btn" onclick="filterSection('pasta', this)">Pasta</button>
+      <button class="menu-section-btn" onclick="filterSection('platters', this)">Platters</button>
+      <button class="menu-section-btn" onclick="filterSection('sandwiches', this)">Sandwiches &amp; Hoagies</button>
+      <button class="menu-section-btn" onclick="filterSection('sides', this)">Side Orders</button>
     </div>
 
     <!-- FOOD MENU -->
     <div id="menu-food" class="menu-grid">
-      <div class="menu-divider" id="sec-appetizers"><span>Appetizers</span></div>
-      <div class="menu-item"><div><div class="menu-item-name">Buffalo Wings</div><div class="menu-item-desc">Hot, extra hot, or hot &amp; honey</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Mozzarella Sticks</div><div class="menu-item-desc">Served with marinara</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Potato Skins</div><div class="menu-item-desc">Stuffed with cheddar, broccoli, or bacon</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Chicken Tenders</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Clams Casino</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Crab Puffs</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Shrimp Cocktail</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Jalapeño Poppers</div><div class="menu-item-desc">With cream cheese or cheddar</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Breaded Fried Mushrooms</div><div class="menu-item-desc">15 done to perfection</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Ribs</div><div class="menu-item-desc">Served with wings and onion rings</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Buffalo Wings — Bucket of 50</div><div class="menu-item-desc">Great for groups</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Hot Chili</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
+      <div class="menu-divider" id="sec-appetizers" data-section="appetizers"><span>Appetizers</span></div>
+      <div class="menu-item" data-section="appetizers"><div><div class="menu-item-name">Buffalo Wings</div><div class="menu-item-desc">Hot, extra hot, or hot &amp; honey</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="appetizers"><div><div class="menu-item-name">Mozzarella Sticks</div><div class="menu-item-desc">Served with marinara</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="appetizers"><div><div class="menu-item-name">Potato Skins</div><div class="menu-item-desc">Stuffed with cheddar, broccoli, or bacon</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="appetizers"><div><div class="menu-item-name">Chicken Tenders</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="appetizers"><div><div class="menu-item-name">Clams Casino</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="appetizers"><div><div class="menu-item-name">Crab Puffs</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="appetizers"><div><div class="menu-item-name">Shrimp Cocktail</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="appetizers"><div><div class="menu-item-name">Jalapeño Poppers</div><div class="menu-item-desc">With cream cheese or cheddar</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="appetizers"><div><div class="menu-item-name">Breaded Fried Mushrooms</div><div class="menu-item-desc">15 done to perfection</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="appetizers"><div><div class="menu-item-name">Ribs</div><div class="menu-item-desc">Served with wings and onion rings</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="appetizers"><div><div class="menu-item-name">Buffalo Wings — Bucket of 50</div><div class="menu-item-desc">Great for groups</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="appetizers"><div><div class="menu-item-name">Hot Chili</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
 
-      <div class="menu-divider" id="sec-salads"><span>Salads</span></div>
-      <div class="menu-item"><div><div class="menu-item-name">Antipasto</div><div class="menu-item-desc">Capicola, salami, provolone, tuna, eggs, olives &amp; anchovies</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Chef Salad</div><div class="menu-item-desc">Ham, turkey, roast beef, American cheese, tomato &amp; egg</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Tuna Salad Platter</div><div class="menu-item-desc">White tuna on lettuce, tomato, egg, coleslaw &amp; garnish</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Tossed Garden Salad</div><div class="menu-item-desc">Fresh garden greens</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Taco Salad</div><div class="menu-item-desc">Grilled chicken, bacon, mandarin oranges &amp; walnuts with warm Caesar dressing</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Taco Salad with Shrimp</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
+      <div class="menu-divider" id="sec-salads" data-section="salads"><span>Salads</span></div>
+      <div class="menu-item" data-section="salads"><div><div class="menu-item-name">Antipasto</div><div class="menu-item-desc">Capicola, salami, provolone, tuna, eggs, olives &amp; anchovies</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="salads"><div><div class="menu-item-name">Chef Salad</div><div class="menu-item-desc">Ham, turkey, roast beef, American cheese, tomato &amp; egg</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="salads"><div><div class="menu-item-name">Tuna Salad Platter</div><div class="menu-item-desc">White tuna on lettuce, tomato, egg, coleslaw &amp; garnish</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="salads"><div><div class="menu-item-name">Tossed Garden Salad</div><div class="menu-item-desc">Fresh garden greens</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="salads"><div><div class="menu-item-name">Taco Salad</div><div class="menu-item-desc">Grilled chicken, bacon, mandarin oranges &amp; walnuts with warm Caesar dressing</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="salads"><div><div class="menu-item-name">Taco Salad with Shrimp</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
 
-      <div class="menu-divider" id="sec-sea"><span>From the Sea</span></div>
-      <div class="menu-item"><div><div class="menu-item-name">Seafood Patrick's</div><div class="menu-item-desc">Scallops, shrimp &amp; monkfish in light wine sauce over egg noodles. Includes salad, two vegetables, roll &amp; spaghetti</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Shrimp and Scallops Susan</div><div class="menu-item-desc">Sautéed in butter, brandy, onion, garlic &amp; mushroom in dijon mustard cream gravy over rice</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Broiled Seafood Combination</div><div class="menu-item-desc">Shrimp, flounder, scallops &amp; clams casino. Includes salad, two vegetables, roll &amp; spaghetti</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Grilled Swordfish</div><div class="menu-item-desc">Served with cilantro lime butter. Includes salad, two vegetables, roll &amp; spaghetti</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-divider" id="sec-sea" data-section="sea"><span>From the Sea</span></div>
+      <div class="menu-item" data-section="sea"><div><div class="menu-item-name">Seafood Patrick's</div><div class="menu-item-desc">Scallops, shrimp &amp; monkfish in light wine sauce over egg noodles. Includes salad, two vegetables, roll &amp; spaghetti</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="sea"><div><div class="menu-item-name">Shrimp and Scallops Susan</div><div class="menu-item-desc">Sautéed in butter, brandy, onion, garlic &amp; mushroom in dijon mustard cream gravy over rice</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="sea"><div><div class="menu-item-name">Broiled Seafood Combination</div><div class="menu-item-desc">Shrimp, flounder, scallops &amp; clams casino. Includes salad, two vegetables, roll &amp; spaghetti</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="sea"><div><div class="menu-item-name">Grilled Swordfish</div><div class="menu-item-desc">Served with cilantro lime butter. Includes salad, two vegetables, roll &amp; spaghetti</div></div><div class="menu-item-price"></div></div>
 
-      <div class="menu-divider" id="sec-pasta"><span>Pasta</span></div>
-      <div class="menu-item"><div><div class="menu-item-name">Linguini with Clam Sauce</div><div class="menu-item-desc">Red or white. Served with fresh garden salad</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Vodka Rigatoni</div><div class="menu-item-desc">Prosciutto ham in a vodka cream sauce. Served with salad</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Spaghetti Mara Monte</div><div class="menu-item-desc">Shrimp &amp; mushrooms in spicy marinara sauce</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Fettuccine Alfredo</div><div class="menu-item-desc">Served with fresh garden salad</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Cheese Ravioli</div><div class="menu-item-desc">Served with sauce &amp; salad</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Stuffed Shells</div><div class="menu-item-desc">Served with fresh garden salad</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-divider" id="sec-pasta" data-section="pasta"><span>Pasta</span></div>
+      <div class="menu-item" data-section="pasta"><div><div class="menu-item-name">Linguini with Clam Sauce</div><div class="menu-item-desc">Red or white. Served with fresh garden salad</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="pasta"><div><div class="menu-item-name">Vodka Rigatoni</div><div class="menu-item-desc">Prosciutto ham in a vodka cream sauce. Served with salad</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="pasta"><div><div class="menu-item-name">Spaghetti Mara Monte</div><div class="menu-item-desc">Shrimp &amp; mushrooms in spicy marinara sauce</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="pasta"><div><div class="menu-item-name">Fettuccine Alfredo</div><div class="menu-item-desc">Served with fresh garden salad</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="pasta"><div><div class="menu-item-name">Cheese Ravioli</div><div class="menu-item-desc">Served with sauce &amp; salad</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="pasta"><div><div class="menu-item-name">Stuffed Shells</div><div class="menu-item-desc">Served with fresh garden salad</div></div><div class="menu-item-price"></div></div>
 
-      <div class="menu-divider" id="sec-platters"><span>Platters</span></div>
-      <div class="menu-item"><div><div class="menu-item-name">Fried Shrimp</div><div class="menu-item-desc">7 large shrimp, lightly breaded &amp; fried to perfection</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Fried Flounder</div><div class="menu-item-desc">1–2 lb filet, freshly breaded</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Deviled Crab</div><div class="menu-item-desc">Two large freshly prepared crab cakes</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">New York Strip Steak</div><div class="menu-item-desc">1–2 lbs of tender char-broiled sirloin</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Open-Faced Hot Roast Beef</div><div class="menu-item-desc">Tender beef smothered in a rich brown gravy</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Shrimp and Steak</div><div class="menu-item-desc">3 large fried shrimp &amp; 1–2 lb char-broiled sirloin</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Chicken and Shrimp</div><div class="menu-item-desc">Honey-dipped fried chicken &amp; 4 large fried shrimp</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Seafood Combination</div><div class="menu-item-desc">Shrimp, flounder, deviled clam &amp; deviled crab</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-divider" id="sec-platters" data-section="platters"><span>Platters</span></div>
+      <div class="menu-item" data-section="platters"><div><div class="menu-item-name">Fried Shrimp</div><div class="menu-item-desc">7 large shrimp, lightly breaded &amp; fried to perfection</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="platters"><div><div class="menu-item-name">Fried Flounder</div><div class="menu-item-desc">1–2 lb filet, freshly breaded</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="platters"><div><div class="menu-item-name">Deviled Crab</div><div class="menu-item-desc">Two large freshly prepared crab cakes</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="platters"><div><div class="menu-item-name">New York Strip Steak</div><div class="menu-item-desc">1–2 lbs of tender char-broiled sirloin</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="platters"><div><div class="menu-item-name">Open-Faced Hot Roast Beef</div><div class="menu-item-desc">Tender beef smothered in a rich brown gravy</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="platters"><div><div class="menu-item-name">Shrimp and Steak</div><div class="menu-item-desc">3 large fried shrimp &amp; 1–2 lb char-broiled sirloin</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="platters"><div><div class="menu-item-name">Chicken and Shrimp</div><div class="menu-item-desc">Honey-dipped fried chicken &amp; 4 large fried shrimp</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="platters"><div><div class="menu-item-name">Seafood Combination</div><div class="menu-item-desc">Shrimp, flounder, deviled clam &amp; deviled crab</div></div><div class="menu-item-price"></div></div>
 
-      <div class="menu-divider" id="sec-sandwiches"><span>Sandwiches &amp; Hoagies</span></div>
-      <div class="menu-item"><div><div class="menu-item-name">Cheesesteak</div><div class="menu-item-desc">Freshly made steak on premises</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Cheeseburger Deluxe</div><div class="menu-item-desc">¼ lb on kaiser roll with ham, melted cheese, LTO, onion rings &amp; fries</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Grilled Chicken Sandwich</div><div class="menu-item-desc">Mushrooms, fried onions &amp; provolone</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Sebastian Sandwich</div><div class="menu-item-desc">Grilled ham &amp; cheese with coleslaw on rye</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Hot Baked Ham on Kaiser Roll</div><div class="menu-item-desc">Includes french fries</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Hot Roast Beef on Kaiser Roll</div><div class="menu-item-desc">Includes french fries</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Club Sandwich</div><div class="menu-item-desc">Freshly made on premises</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Italian Hoagie</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Cheese Steak Hoagie</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Roast Beef Hoagie</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
+      <div class="menu-divider" id="sec-sandwiches" data-section="sandwiches"><span>Sandwiches &amp; Hoagies</span></div>
+      <div class="menu-item" data-section="sandwiches"><div><div class="menu-item-name">Cheesesteak</div><div class="menu-item-desc">Freshly made steak on premises</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="sandwiches"><div><div class="menu-item-name">Cheeseburger Deluxe</div><div class="menu-item-desc">¼ lb on kaiser roll with ham, melted cheese, LTO, onion rings &amp; fries</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="sandwiches"><div><div class="menu-item-name">Grilled Chicken Sandwich</div><div class="menu-item-desc">Mushrooms, fried onions &amp; provolone</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="sandwiches"><div><div class="menu-item-name">Sebastian Sandwich</div><div class="menu-item-desc">Grilled ham &amp; cheese with coleslaw on rye</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="sandwiches"><div><div class="menu-item-name">Hot Baked Ham on Kaiser Roll</div><div class="menu-item-desc">Includes french fries</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="sandwiches"><div><div class="menu-item-name">Hot Roast Beef on Kaiser Roll</div><div class="menu-item-desc">Includes french fries</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="sandwiches"><div><div class="menu-item-name">Club Sandwich</div><div class="menu-item-desc">Freshly made on premises</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="sandwiches"><div><div class="menu-item-name">Italian Hoagie</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="sandwiches"><div><div class="menu-item-name">Cheese Steak Hoagie</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="sandwiches"><div><div class="menu-item-name">Roast Beef Hoagie</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
 
-      <div class="menu-divider" id="sec-sides"><span>Side Orders</span></div>
-      <div class="menu-item"><div><div class="menu-item-name">French Fries</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Onion Rings</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Cheese Fries</div></div><div class="menu-item-price"></div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Cole Slaw</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-divider" id="sec-sides" data-section="sides"><span>Side Orders</span></div>
+      <div class="menu-item" data-section="sides"><div><div class="menu-item-name">French Fries</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="sides"><div><div class="menu-item-name">Onion Rings</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="sides"><div><div class="menu-item-name">Cheese Fries</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item" data-section="sides"><div><div class="menu-item-name">Cole Slaw</div></div><div class="menu-item-price"></div></div>
     </div>
 
     <!-- DRINKS MENU -->
@@ -700,7 +705,7 @@
           <p><a href="tel:+1">Call us to reserve</a></p>
         </div>
         <div class="contact-item">
-          <span class="contact-icon">📩</span>
+          <span class="contact-icon">✉️</span>
           <p><a href="mailto:info@patrickspubpa.com">info@patrickspubpa.com</a></p>
         </div>
         <div class="social-links">
@@ -741,7 +746,7 @@
 
 <script>
   // Highlight today's hours row dynamically
-  const todayDay = new Date().getDay(); // 0=Sun, 1=Mon ... 6=Sat
+  const todayDay = new Date().getDay();
   document.querySelectorAll('#hours-table tr[data-day]').forEach(row => {
     if (parseInt(row.getAttribute('data-day')) === todayDay) {
       row.classList.add('today');
@@ -754,11 +759,27 @@
     });
     document.querySelectorAll('.menu-tab').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    // Show section jump buttons only for food tab
     document.getElementById('food-section-btns').style.display = type === 'food' ? 'flex' : 'none';
+    // Reset to full menu when switching tabs
+    if (type === 'food') filterSection('all', document.querySelector('.menu-section-btn'));
+  }
+
+  function filterSection(section, btn) {
+    const allItems = document.querySelectorAll('#menu-food [data-section]');
+    allItems.forEach(el => {
+      if (section === 'all' || el.getAttribute('data-section') === section) {
+        el.style.display = '';
+      } else {
+        el.style.display = 'none';
+      }
+    });
+    // Update active button state
+    document.querySelectorAll('.menu-section-btn').forEach(b => b.classList.remove('active-section'));
+    btn.classList.add('active-section');
   }
 </script>
 
 </body>
 </html>
+
 
