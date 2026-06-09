@@ -9,16 +9,16 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --gold: #B8860B;
-    --gold-light: #D4A017;
-    --gold-pale: #FFF8E7;
-    --dark: #1A1208;
-    --dark-mid: #2D2210;
-    --charcoal: #3B3020;
-    --cream: #FAF6EE;
-    --text: #2D2210;
-    --text-muted: #6B5A3A;
-    --border: rgba(184,134,11,0.2);
+    --gold: #1F6B3A;
+    --gold-light: #2E9A54;
+    --gold-pale: #EAF5EE;
+    --dark: #0D1F14;
+    --dark-mid: #132B1C;
+    --charcoal: #1A3825;
+    --cream: #F4FAF6;
+    --text: #0D1F14;
+    --text-muted: #3A5E47;
+    --border: rgba(31,107,58,0.2);
     --white: #fff;
   }
 
@@ -37,7 +37,7 @@
     top: 0;
     z-index: 100;
     background: var(--dark);
-    border-bottom: 1px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
   }
   .nav-inner {
     max-width: 1100px;
@@ -46,49 +46,56 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 64px;
+    height: 80px;
   }
   .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    color: var(--gold-light);
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    letter-spacing: 0.02em;
+  }
+  .nav-logo img {
+    height: 68px;
+    width: auto;
+    display: block;
   }
   .nav-links {
     display: flex;
     gap: 0;
     list-style: none;
+    align-items: center;
   }
   .nav-links a {
-    color: rgba(255,255,255,0.8);
+    color: rgba(255,255,255,0.85);
     text-decoration: none;
-    font-size: 0.875rem;
     font-weight: 500;
-    padding: 0 1rem;
-    height: 64px;
+    padding: 0 0.9rem;
+    height: 80px;
     display: flex;
     align-items: center;
     transition: color 0.2s, background 0.2s;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
-    font-size: 0.78rem;
+    font-size: 0.75rem;
   }
-  .nav-links a:hover { color: var(--gold-light); background: rgba(255,255,255,0.05); }
+  .nav-links a:hover { color: white; background: rgba(255,255,255,0.08); }
   .nav-cta {
-    background: var(--gold) !important;
-    color: var(--dark) !important;
-    font-weight: 600 !important;
-    padding: 0 1.2rem !important;
-    border-radius: 3px;
+    background: white !important;
+    color: #1F6B3A !important;
+    font-weight: 700 !important;
+    font-size: 0.75rem !important;
+    padding: 0.55rem 1.1rem !important;
+    border-radius: 4px !important;
+    height: auto !important;
+    letter-spacing: 0.04em !important;
+    margin-left: 0.5rem;
   }
-  .nav-cta:hover { background: var(--gold-light) !important; }
+  .nav-cta:hover { background: #EAF5EE !important; color: #1F6B3A !important; }
 
   .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-  .hamburger span { display: block; width: 22px; height: 2px; background: var(--gold-light); margin: 5px 0; transition: 0.3s; }
-  .mobile-menu { display: none; background: var(--dark); border-top: 1px solid var(--border); }
+  .hamburger span { display: block; width: 22px; height: 2px; background: white; margin: 5px 0; transition: 0.3s; }
+  .mobile-menu { display: none; background: var(--dark); border-top: 1px solid rgba(255,255,255,0.1); }
   .mobile-menu a { display: block; color: rgba(255,255,255,0.85); text-decoration: none; padding: 1rem 2rem; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.9rem; letter-spacing: 0.03em; }
-  .mobile-menu a:hover { background: rgba(255,255,255,0.05); color: var(--gold-light); }
+  .mobile-menu a:hover { background: rgba(255,255,255,0.05); color: white; }
 
   /* ── HERO ── */
   .hero {
@@ -140,7 +147,7 @@
   .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
   .btn-primary {
     background: var(--gold);
-    color: var(--dark);
+    color: white;
     text-decoration: none;
     font-weight: 600;
     padding: 0.85rem 2rem;
@@ -164,15 +171,15 @@
 
   /* ── INFO BAR ── */
   .info-bar {
-    background: var(--gold);
-    color: var(--dark);
+    background: #1F6B3A;
+    color: white;
     padding: 0.75rem 2rem;
     text-align: center;
     font-size: 0.88rem;
     font-weight: 600;
     letter-spacing: 0.04em;
   }
-  .info-bar a { color: var(--dark); text-decoration: underline; }
+  .info-bar a { color: white; text-decoration: underline; }
 
   /* ── SECTIONS ── */
   section { padding: 5rem 2rem; }
@@ -180,23 +187,23 @@
 
   .section-label {
     font-size: 0.72rem;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 600;
+    color: #1F6B3A;
+    font-weight: 700;
     margin-bottom: 0.6rem;
   }
   .section-title {
     font-family: 'Playfair Display', serif;
     font-size: clamp(2rem, 4vw, 2.8rem);
     font-weight: 700;
-    color: var(--dark);
+    color: #0D1F14;
     line-height: 1.15;
     margin-bottom: 1rem;
   }
   .section-body {
     font-size: 1.05rem;
-    color: var(--text-muted);
+    color: #3D5040;
     max-width: 560px;
     line-height: 1.75;
   }
@@ -259,29 +266,31 @@
     color: var(--dark);
     margin-bottom: 0.5rem;
   }
-  .feature-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
+  .feature-card p { font-size: 0.95rem; color: #3D5040; line-height: 1.7; }
   .feature-card a {
     display: inline-block;
     margin-top: 1rem;
-    color: var(--gold);
-    font-weight: 600;
+    color: #1F6B3A;
+    font-weight: 700;
     font-size: 0.88rem;
     text-decoration: none;
     letter-spacing: 0.03em;
+    border-bottom: 1.5px solid rgba(31,107,58,0.3);
+    padding-bottom: 1px;
   }
-  .feature-card a:hover { text-decoration: underline; }
+  .feature-card a:hover { border-bottom-color: #1F6B3A; }
 
   /* ── MENU PREVIEW ── */
-  .menu-section { background: var(--dark-mid); }
+  .menu-section { background: #0D1F14; }
   .menu-section .section-title { color: white; }
   .menu-section .section-body { color: rgba(255,255,255,0.65); }
-  .menu-section .section-label { color: var(--gold-light); }
+  .menu-section .section-label { color: #6FCF8E; letter-spacing: 0.16em; }
   .menu-header { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem; }
   .menu-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1.5rem; }
   .menu-tab {
     background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.15);
-    color: rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.8);
     padding: 0.5rem 1.25rem;
     border-radius: 30px;
     font-size: 0.85rem;
@@ -290,48 +299,49 @@
     font-weight: 500;
     transition: 0.2s;
   }
-  .menu-tab:hover, .menu-tab.active { background: var(--gold); border-color: var(--gold); color: var(--dark); }
-  .menu-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden; }
-  .menu-section-btns { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1.5rem 0 2rem; }
-  .menu-section-btn { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.75); padding: 0.4rem 1rem; border-radius: 30px; font-size: 0.82rem; cursor: pointer; font-family: 'Inter', sans-serif; font-weight: 500; transition: 0.2s; text-decoration: none; display: inline-block; }
-  .menu-section-btn:hover { background: rgba(184,134,11,0.25); border-color: var(--gold); color: var(--gold-light); }
-  .menu-section-btn.active-section { background: var(--gold); border-color: var(--gold); color: var(--dark); font-weight: 600; }
+  .menu-tab:hover { background: rgba(255,255,255,0.12); color: white; border-color: rgba(255,255,255,0.35); }
+  .menu-tab.active { background: var(--gold); border-color: var(--gold); color: white; font-weight: 600; }
+  .menu-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; overflow: hidden; }
+  .menu-section-btns { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0 0 2rem; }
+  .menu-section-btn { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.8); padding: 0.4rem 1rem; border-radius: 30px; font-size: 0.82rem; cursor: pointer; font-family: 'Inter', sans-serif; font-weight: 500; transition: 0.2s; text-decoration: none; display: inline-block; }
+  .menu-section-btn:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.35); color: white; }
+  .menu-section-btn.active-section { background: var(--gold); border-color: var(--gold); color: white; font-weight: 600; }
   .menu-item {
-    background: var(--dark);
-    padding: 1.25rem 1.5rem;
+    background: #132B1C;
+    padding: 1.1rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     gap: 1rem;
   }
-  .menu-item:hover { background: var(--dark-mid); }
+  .menu-item:hover { background: #1A3828; }
   .menu-item-name { font-weight: 500; color: white; font-size: 0.95rem; }
-  .menu-item-desc { font-size: 0.82rem; color: rgba(255,255,255,0.45); margin-top: 0.2rem; }
-  .menu-item-price { color: var(--gold-light); font-weight: 600; font-size: 0.95rem; white-space: nowrap; flex-shrink: 0; }
-  .menu-divider { grid-column: 1 / -1; background: rgba(255,255,255,0.06); padding: 0.6rem 1.5rem; }
-  .menu-divider span { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+  .menu-item-desc { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-top: 0.2rem; }
+  .menu-item-price { color: #6FCF8E; font-weight: 600; font-size: 0.95rem; white-space: nowrap; flex-shrink: 0; }
+  .menu-divider { background: #1F6B3A; padding: 0.55rem 1.5rem; }
+  .menu-divider span { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: white; font-weight: 700; }
   .menu-cta { text-align: center; margin-top: 3rem; }
-  .menu-cta a { display: inline-block; border: 1.5px solid var(--gold); color: var(--gold-light); text-decoration: none; font-weight: 600; padding: 0.85rem 2.5rem; border-radius: 3px; font-size: 0.95rem; transition: 0.2s; letter-spacing: 0.03em; }
-  .menu-cta a:hover { background: var(--gold); color: var(--dark); }
+  .menu-cta a { display: inline-block; border: 1.5px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.85); text-decoration: none; font-weight: 600; padding: 0.85rem 2.5rem; border-radius: 3px; font-size: 0.95rem; transition: 0.2s; letter-spacing: 0.03em; }
+  .menu-cta a:hover { background: var(--gold); border-color: var(--gold); color: white; }
 
   /* ── EVENTS ── */
   .events { background: var(--white); }
   .events-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; margin-top: 3rem; }
   .event-card { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
   .event-date-bar { background: var(--gold); padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; }
-  .event-day { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--dark); line-height: 1; }
-  .event-month { font-size: 0.8rem; font-weight: 600; color: var(--dark); text-transform: uppercase; letter-spacing: 0.1em; }
+  .event-day { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: white; line-height: 1; }
+  .event-month { font-size: 0.8rem; font-weight: 700; color: rgba(255,255,255,0.85); text-transform: uppercase; letter-spacing: 0.1em; }
   .event-body { padding: 1.25rem; }
   .event-body h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--dark); margin-bottom: 0.4rem; }
   .event-body p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
-  .event-time { display: inline-block; margin-top: 0.75rem; font-size: 0.8rem; font-weight: 600; color: var(--gold); letter-spacing: 0.04em; }
+  .event-time { display: inline-block; margin-top: 0.75rem; font-size: 0.8rem; font-weight: 700; color: var(--gold); letter-spacing: 0.04em; }
 
   /* ── REVIEWS ── */
   .reviews { background: var(--cream); }
   .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; margin-top: 3rem; }
-  .review-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; padding: 1.75rem; }
-  .stars { color: var(--gold); font-size: 1rem; margin-bottom: 1rem; letter-spacing: 0.08em; }
-  .review-card blockquote { font-size: 0.95rem; color: var(--text-muted); line-height: 1.75; font-style: italic; margin-bottom: 1rem; }
+  .review-card { background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--gold); border-radius: 4px; padding: 1.75rem; }
+  .stars { color: #2E9A54; font-size: 1.1rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
+  .review-card blockquote { font-size: 0.95rem; color: #2D3E30; line-height: 1.75; font-style: italic; margin-bottom: 1rem; border-left: 3px solid var(--gold); padding-left: 1rem; }
   .reviewer { font-weight: 600; font-size: 0.88rem; color: var(--dark); }
 
   /* ── HOURS + LOCATION ── */
@@ -393,7 +403,9 @@
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="#" class="nav-logo">Patrick's Pub &amp; Restaurant</a>
+    <a href="#" class="nav-logo">
+      <img src="Patricks_Pub_and_Restaurant_Logo.png" alt="Patrick's Pub & Restaurant">
+    </a>
     <ul class="nav-links">
       <li><a href="#menu">Menu</a></li>
       <li><a href="#events">Events</a></li>
@@ -441,19 +453,16 @@
     </div>
     <div class="features-grid">
       <div class="feature-card">
-        <div class="feature-icon">🍺</div>
         <h3>Full Bar</h3>
         <p>Cold drafts, reasonably priced cocktails, and your favorite spirits. A friendly bartender and good conversation always included.</p>
         <a href="#menu">See drink menu →</a>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">🍽️</div>
-        <h3>Real Kitchen</h3>
+        <h3>Great Kitchen</h3>
         <p>Seafood platters, pasta dishes, hearty sandwiches, and pub classics — all made fresh. Roast beef, ground beef, and turkey prepared on premises.</p>
         <a href="#menu">See food menu →</a>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">🎱</div>
         <h3>Games &amp; Take-Out</h3>
         <p>Pool tables and dart boards for a proper local pub night. Full menu available to take out — great for feeding a group at home too.</p>
         <a href="#location">Get in touch →</a>
