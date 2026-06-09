@@ -291,7 +291,10 @@
     transition: 0.2s;
   }
   .menu-tab:hover, .menu-tab.active { background: var(--gold); border-color: var(--gold); color: var(--dark); }
-  .menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden; }
+  .menu-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden; }
+  .menu-section-btns { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1.5rem 0 2rem; }
+  .menu-section-btn { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.75); padding: 0.4rem 1rem; border-radius: 30px; font-size: 0.82rem; cursor: pointer; font-family: 'Inter', sans-serif; font-weight: 500; transition: 0.2s; text-decoration: none; display: inline-block; }
+  .menu-section-btn:hover { background: rgba(184,134,11,0.25); border-color: var(--gold); color: var(--gold-light); }
   .menu-item {
     background: var(--dark);
     padding: 1.25rem 1.5rem;
@@ -439,19 +442,19 @@
       <div class="feature-card">
         <div class="feature-icon">🍺</div>
         <h3>Full Bar</h3>
-        <p>Craft beers on tap, wine, cocktails, and your favorite spirits. Happy hour runs Monday through Friday, 3–6 PM.</p>
+        <p>Cold drafts, reasonably priced cocktails, and your favorite spirits. A friendly bartender and good conversation always included.</p>
         <a href="#menu">See drink menu →</a>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">🍔</div>
-        <h3>Kitchen Open Late</h3>
-        <p>From hearty burgers and wings to cheesesteaks, pasta, and fresh salads — real food made to order every night.</p>
+        <div class="feature-icon">🍽️</div>
+        <h3>Real Kitchen</h3>
+        <p>Seafood platters, pasta dishes, hearty sandwiches, and pub classics — all made fresh. Roast beef, ground beef, and turkey prepared on premises.</p>
         <a href="#menu">See food menu →</a>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">🎉</div>
-        <h3>Private Events</h3>
-        <p>Birthday parties, work gatherings, sports watch parties — we'll set up the space and take care of the food.</p>
+        <div class="feature-icon">🎱</div>
+        <h3>Games &amp; Take-Out</h3>
+        <p>Pool tables and dart boards for a proper local pub night. Full menu available to take out — great for feeding a group at home too.</p>
         <a href="#location">Get in touch →</a>
       </div>
     </div>
@@ -468,8 +471,8 @@
       <div class="about-text">
         <p class="section-label">Our story</p>
         <h2 class="section-title">A real neighborhood bar in the heart of Croydon</h2>
-        <p class="section-body">Patrick's Pub &amp; Restaurant has been a fixture on Bristol Pike for years. We're not a chain, not a franchise — just a place where the beer is cold, the food is honest, and everybody knows your name by the second visit.</p>
-        <p class="section-body" style="margin-top:1rem;">Whether you're stopping in after work, watching the Eagles game, or celebrating something special, our team is here to make sure it's a night worth coming back for.</p>
+        <p class="section-body">Patrick's Pub &amp; Restaurant has been a fixture on Bristol Pike for years. We're not a chain, not a franchise — just a place where the beer is cold, the prices are fair, and the staff treats every new face like a regular.</p>
+        <p class="section-body" style="margin-top:1rem;">Come in for a tasty lunch, stay for good conversation. Shoot pool, throw some darts, or grab a take-out order on the way home. Whatever brings you through the door, you'll want to come back.</p>
         <a href="#location" class="btn-primary">Find Us at 505 Bristol Pike</a>
       </div>
     </div>
@@ -491,84 +494,104 @@
       </div>
     </div>
 
+    <div class="menu-section-btns" id="food-section-btns">
+      <a href="#sec-appetizers" class="menu-section-btn">Appetizers</a>
+      <a href="#sec-salads" class="menu-section-btn">Salads</a>
+      <a href="#sec-sea" class="menu-section-btn">From the Sea</a>
+      <a href="#sec-pasta" class="menu-section-btn">Pasta</a>
+      <a href="#sec-platters" class="menu-section-btn">Platters</a>
+      <a href="#sec-sandwiches" class="menu-section-btn">Sandwiches &amp; Hoagies</a>
+      <a href="#sec-sides" class="menu-section-btn">Side Orders</a>
+    </div>
+
     <!-- FOOD MENU -->
     <div id="menu-food" class="menu-grid">
-      <div class="menu-divider"><span>Starters &amp; Shareables</span></div>
-      <div class="menu-item">
-        <div><div class="menu-item-name">Loaded Nachos</div><div class="menu-item-desc">Jalapeños, cheddar, pico, sour cream</div></div>
-        <div class="menu-item-price">$12</div>
-      </div>
-      <div class="menu-item">
-        <div><div class="menu-item-name">Buffalo Wings</div><div class="menu-item-desc">Choice of sauce, celery &amp; blue cheese</div></div>
-        <div class="menu-item-price">$14</div>
-      </div>
-      <div class="menu-item">
-        <div><div class="menu-item-name">Mozzarella Sticks</div><div class="menu-item-desc">Served with marinara</div></div>
-        <div class="menu-item-price">$9</div>
-      </div>
-      <div class="menu-item">
-        <div><div class="menu-item-name">Pub Sampler</div><div class="menu-item-desc">Wings, sticks, onion rings, fingers</div></div>
-        <div class="menu-item-price">$18</div>
-      </div>
-      <div class="menu-divider"><span>Burgers &amp; Sandwiches</span></div>
-      <div class="menu-item">
-        <div><div class="menu-item-name">Patrick's Burger</div><div class="menu-item-desc">8oz beef, cheddar, LTO, brioche bun</div></div>
-        <div class="menu-item-price">$14</div>
-      </div>
-      <div class="menu-item">
-        <div><div class="menu-item-name">Cheesesteak</div><div class="menu-item-desc">Ribeye, wiz or American, your way</div></div>
-        <div class="menu-item-price">$13</div>
-      </div>
-      <div class="menu-item">
-        <div><div class="menu-item-name">Grilled Chicken Sandwich</div><div class="menu-item-desc">Roasted peppers, provolone, brioche</div></div>
-        <div class="menu-item-price">$13</div>
-      </div>
-      <div class="menu-item">
-        <div><div class="menu-item-name">BLT Club</div><div class="menu-item-desc">Triple decker, fries included</div></div>
-        <div class="menu-item-price">$13</div>
-      </div>
-      <div class="menu-divider"><span>Mains &amp; Plates</span></div>
-      <div class="menu-item">
-        <div><div class="menu-item-name">Fish &amp; Chips</div><div class="menu-item-desc">Beer-battered cod, tartar, malt vinegar</div></div>
-        <div class="menu-item-price">$17</div>
-      </div>
-      <div class="menu-item">
-        <div><div class="menu-item-name">Shepherd's Pie</div><div class="menu-item-desc">Ground beef, root veg, mashed potato</div></div>
-        <div class="menu-item-price">$16</div>
-      </div>
-      <div class="menu-item">
-        <div><div class="menu-item-name">Chicken Parmigiana</div><div class="menu-item-desc">Marinara, mozzarella, pasta side</div></div>
-        <div class="menu-item-price">$18</div>
-      </div>
-      <div class="menu-item">
-        <div><div class="menu-item-name">Pasta Vodka</div><div class="menu-item-desc">Penne, pink cream sauce, fresh basil</div></div>
-        <div class="menu-item-price">$15</div>
-      </div>
+      <div class="menu-divider" id="sec-appetizers"><span>Appetizers</span></div>
+      <div class="menu-item"><div><div class="menu-item-name">Buffalo Wings</div><div class="menu-item-desc">Hot, extra hot, or hot &amp; honey</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Mozzarella Sticks</div><div class="menu-item-desc">Served with marinara</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Potato Skins</div><div class="menu-item-desc">Stuffed with cheddar, broccoli, or bacon</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Chicken Tenders</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Clams Casino</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Crab Puffs</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Shrimp Cocktail</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Jalapeño Poppers</div><div class="menu-item-desc">With cream cheese or cheddar</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Breaded Fried Mushrooms</div><div class="menu-item-desc">15 done to perfection</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Ribs</div><div class="menu-item-desc">Served with wings and onion rings</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Buffalo Wings — Bucket of 50</div><div class="menu-item-desc">Great for groups</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Hot Chili</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
+
+      <div class="menu-divider" id="sec-salads"><span>Salads</span></div>
+      <div class="menu-item"><div><div class="menu-item-name">Antipasto</div><div class="menu-item-desc">Capicola, salami, provolone, tuna, eggs, olives &amp; anchovies</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Chef Salad</div><div class="menu-item-desc">Ham, turkey, roast beef, American cheese, tomato &amp; egg</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Tuna Salad Platter</div><div class="menu-item-desc">White tuna on lettuce, tomato, egg, coleslaw &amp; garnish</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Tossed Garden Salad</div><div class="menu-item-desc">Fresh garden greens</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Taco Salad</div><div class="menu-item-desc">Grilled chicken, bacon, mandarin oranges &amp; walnuts with warm Caesar dressing</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Taco Salad with Shrimp</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
+
+      <div class="menu-divider" id="sec-sea"><span>From the Sea</span></div>
+      <div class="menu-item"><div><div class="menu-item-name">Seafood Patrick's</div><div class="menu-item-desc">Scallops, shrimp &amp; monkfish in light wine sauce over egg noodles. Includes salad, two vegetables, roll &amp; spaghetti</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Shrimp and Scallops Susan</div><div class="menu-item-desc">Sautéed in butter, brandy, onion, garlic &amp; mushroom in dijon mustard cream gravy over rice</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Broiled Seafood Combination</div><div class="menu-item-desc">Shrimp, flounder, scallops &amp; clams casino. Includes salad, two vegetables, roll &amp; spaghetti</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Grilled Swordfish</div><div class="menu-item-desc">Served with cilantro lime butter. Includes salad, two vegetables, roll &amp; spaghetti</div></div><div class="menu-item-price"></div></div>
+
+      <div class="menu-divider" id="sec-pasta"><span>Pasta</span></div>
+      <div class="menu-item"><div><div class="menu-item-name">Linguini with Clam Sauce</div><div class="menu-item-desc">Red or white. Served with fresh garden salad</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Vodka Rigatoni</div><div class="menu-item-desc">Prosciutto ham in a vodka cream sauce. Served with salad</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Spaghetti Mara Monte</div><div class="menu-item-desc">Shrimp &amp; mushrooms in spicy marinara sauce</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Fettuccine Alfredo</div><div class="menu-item-desc">Served with fresh garden salad</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Cheese Ravioli</div><div class="menu-item-desc">Served with sauce &amp; salad</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Stuffed Shells</div><div class="menu-item-desc">Served with fresh garden salad</div></div><div class="menu-item-price"></div></div>
+
+      <div class="menu-divider" id="sec-platters"><span>Platters</span></div>
+      <div class="menu-item"><div><div class="menu-item-name">Fried Shrimp</div><div class="menu-item-desc">7 large shrimp, lightly breaded &amp; fried to perfection</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Fried Flounder</div><div class="menu-item-desc">1–2 lb filet, freshly breaded</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Deviled Crab</div><div class="menu-item-desc">Two large freshly prepared crab cakes</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">New York Strip Steak</div><div class="menu-item-desc">1–2 lbs of tender char-broiled sirloin</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Open-Faced Hot Roast Beef</div><div class="menu-item-desc">Tender beef smothered in a rich brown gravy</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Shrimp and Steak</div><div class="menu-item-desc">3 large fried shrimp &amp; 1–2 lb char-broiled sirloin</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Chicken and Shrimp</div><div class="menu-item-desc">Honey-dipped fried chicken &amp; 4 large fried shrimp</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Seafood Combination</div><div class="menu-item-desc">Shrimp, flounder, deviled clam &amp; deviled crab</div></div><div class="menu-item-price"></div></div>
+
+      <div class="menu-divider" id="sec-sandwiches"><span>Sandwiches &amp; Hoagies</span></div>
+      <div class="menu-item"><div><div class="menu-item-name">Cheesesteak</div><div class="menu-item-desc">Freshly made steak on premises</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Cheeseburger Deluxe</div><div class="menu-item-desc">¼ lb on kaiser roll with ham, melted cheese, LTO, onion rings &amp; fries</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Grilled Chicken Sandwich</div><div class="menu-item-desc">Mushrooms, fried onions &amp; provolone</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Sebastian Sandwich</div><div class="menu-item-desc">Grilled ham &amp; cheese with coleslaw on rye</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Hot Baked Ham on Kaiser Roll</div><div class="menu-item-desc">Includes french fries</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Hot Roast Beef on Kaiser Roll</div><div class="menu-item-desc">Includes french fries</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Club Sandwich</div><div class="menu-item-desc">Freshly made on premises</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Italian Hoagie</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Cheese Steak Hoagie</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Roast Beef Hoagie</div><div class="menu-item-desc"></div></div><div class="menu-item-price"></div></div>
+
+      <div class="menu-divider" id="sec-sides"><span>Side Orders</span></div>
+      <div class="menu-item"><div><div class="menu-item-name">French Fries</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Onion Rings</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Cheese Fries</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Cole Slaw</div></div><div class="menu-item-price"></div></div>
     </div>
 
     <!-- DRINKS MENU -->
     <div id="menu-drinks" class="menu-grid" style="display:none">
       <div class="menu-divider"><span>Drafts on Tap</span></div>
-      <div class="menu-item"><div><div class="menu-item-name">Yuengling Lager</div><div class="menu-item-desc">Pennsylvania's own</div></div><div class="menu-item-price">$5</div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Guinness Stout</div><div class="menu-item-desc">Nitro pour, perfectly settled</div></div><div class="menu-item-price">$7</div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Blue Moon</div><div class="menu-item-desc">With an orange slice</div></div><div class="menu-item-price">$6</div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Rotating Craft</div><div class="menu-item-desc">Ask your server for today's pick</div></div><div class="menu-item-price">$7</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Yuengling Lager</div><div class="menu-item-desc">Pennsylvania's own</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Guinness Stout</div><div class="menu-item-desc">Nitro pour, perfectly settled</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Blue Moon</div><div class="menu-item-desc">Served with an orange slice</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Rotating Craft</div><div class="menu-item-desc">Ask your bartender for today's selection</div></div><div class="menu-item-price"></div></div>
       <div class="menu-divider"><span>Cocktails</span></div>
-      <div class="menu-item"><div><div class="menu-item-name">Patrick's Old Fashioned</div><div class="menu-item-desc">Bourbon, bitters, orange peel</div></div><div class="menu-item-price">$11</div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Irish Mule</div><div class="menu-item-desc">Jameson, ginger beer, lime</div></div><div class="menu-item-price">$10</div></div>
-      <div class="menu-item"><div><div class="menu-item-name">House Sangria</div><div class="menu-item-desc">Red or white, seasonal fruit</div></div><div class="menu-item-price">$9</div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Long Island Iced Tea</div><div class="menu-item-desc">The classic, done right</div></div><div class="menu-item-price">$11</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Patrick's Old Fashioned</div><div class="menu-item-desc">Bourbon, bitters, orange peel</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Irish Mule</div><div class="menu-item-desc">Jameson, ginger beer, lime</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Long Island Iced Tea</div><div class="menu-item-desc">The classic, done right</div></div><div class="menu-item-price"></div></div>
+      <div class="menu-item"><div><div class="menu-item-name">House Sangria</div><div class="menu-item-desc">Red or white, seasonal fruit</div></div><div class="menu-item-price"></div></div>
     </div>
 
     <!-- SPECIALS MENU -->
     <div id="menu-specials" class="menu-grid" style="display:none">
       <div class="menu-divider"><span>Daily Specials</span></div>
-      <div class="menu-item"><div><div class="menu-item-name">Monday — Wing Night</div><div class="menu-item-desc">50¢ wings all night, any sauce</div></div><div class="menu-item-price">All Night</div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Tuesday — Taco Tuesday</div><div class="menu-item-desc">$2 tacos, $5 margaritas</div></div><div class="menu-item-price">All Night</div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Wed — Burger &amp; Beer</div><div class="menu-item-desc">Burger + domestic draft for $16</div></div><div class="menu-item-price">$16</div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Thursday — Trivia Night</div><div class="menu-item-desc">$3 pints during trivia rounds</div></div><div class="menu-item-price">8 PM</div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Fri &amp; Sat — Happy Hour</div><div class="menu-item-desc">$1 off all drafts &amp; well drinks, 3–6 PM</div></div><div class="menu-item-price">3–6 PM</div></div>
-      <div class="menu-item"><div><div class="menu-item-name">Sunday — Brunch</div><div class="menu-item-desc">Bottomless mimosas &amp; brunch plates</div></div><div class="menu-item-price">11 AM–3 PM</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Monday — Wing Night</div><div class="menu-item-desc">Wing specials all night long</div></div><div class="menu-item-price">All Night</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Happy Hour</div><div class="menu-item-desc">$1 off all drafts &amp; well drinks</div></div><div class="menu-item-price">3–6 PM</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Pool Tables &amp; Dart Boards</div><div class="menu-item-desc">Available every night — bring a team</div></div><div class="menu-item-price">Always</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Take-Out Available</div><div class="menu-item-desc">Full menu available to go</div></div><div class="menu-item-price">Any Time</div></div>
     </div>
 
     <div class="menu-cta"><a href="#location">Full menu available in-house &amp; at the bar →</a></div>
@@ -634,18 +657,18 @@
     <div class="reviews-grid">
       <div class="review-card">
         <div class="stars">★★★★★</div>
-        <blockquote>"Best cheesesteak in Croydon, hands down. The staff remember your name after one visit. Classic neighborhood bar — exactly what this area needed."</blockquote>
-        <span class="reviewer">— Mike D., Google Review</span>
+        <blockquote>"Very friendly place to stop in for a very tasty lunch, a cold beer (reasonably priced) and good conversation. The waitress and barmaid helped make my visit 5 star."</blockquote>
+        <span class="reviewer">— Stephen H., Philadelphia, PA · Yelp</span>
       </div>
       <div class="review-card">
         <div class="stars">★★★★★</div>
-        <blockquote>"We booked the back room for a birthday party and it was perfect. Great food, easy setup, and the bartenders kept everyone happy all night."</blockquote>
-        <span class="reviewer">— Sarah T., Google Review</span>
+        <blockquote>"Found this place by accident one night and Danielle the bartender was awesome. She made me feel like I was a regular who had been coming there for years. Very impressed with their food as well. Hidden gem."</blockquote>
+        <span class="reviewer">— Carly R., Long Island, NY · Yelp</span>
       </div>
       <div class="review-card">
         <div class="stars">★★★★★</div>
-        <blockquote>"Wing night on Mondays is unbeatable. Cold beer, 50-cent wings, and a TV for every game. You really can't ask for more from a local pub."</blockquote>
-        <span class="reviewer">— Joe R., Google Review</span>
+        <blockquote>"Patrick's is nothing fancy but they have GREAT staff and good prices. Nice chill place with pool tables, dart boards, and a good size take out store."</blockquote>
+        <span class="reviewer">— Jan P., Philadelphia, PA · Yelp</span>
       </div>
     </div>
   </div>
@@ -657,14 +680,14 @@
     <div class="location-grid">
       <div class="location-col">
         <h3>Hours</h3>
-        <table class="hours-table">
-          <tr><td>Monday</td><td>11 AM – 12 AM</td></tr>
-          <tr><td>Tuesday</td><td>11 AM – 12 AM</td></tr>
-          <tr><td>Wednesday</td><td>11 AM – 12 AM</td></tr>
-          <tr class="today"><td>Thursday</td><td>11 AM – 1 AM</td></tr>
-          <tr><td>Friday</td><td>11 AM – 2 AM</td></tr>
-          <tr><td>Saturday</td><td>11 AM – 2 AM</td></tr>
-          <tr><td>Sunday</td><td>11 AM – 11 PM</td></tr>
+        <table class="hours-table" id="hours-table">
+          <tr data-day="1"><td>Monday</td><td>11 AM – 12 AM</td></tr>
+          <tr data-day="2"><td>Tuesday</td><td>11 AM – 12 AM</td></tr>
+          <tr data-day="3"><td>Wednesday</td><td>11 AM – 12 AM</td></tr>
+          <tr data-day="4"><td>Thursday</td><td>11 AM – 1 AM</td></tr>
+          <tr data-day="5"><td>Friday</td><td>11 AM – 2 AM</td></tr>
+          <tr data-day="6"><td>Saturday</td><td>11 AM – 2 AM</td></tr>
+          <tr data-day="0"><td>Sunday</td><td>11 AM – 11 PM</td></tr>
         </table>
         <p style="font-size:0.78rem; color:rgba(255,255,255,0.35); margin-top:1rem;">Kitchen closes 1 hour before bar close.</p>
       </div>
@@ -720,14 +743,25 @@
 </footer>
 
 <script>
+  // Highlight today's hours row dynamically
+  const todayDay = new Date().getDay(); // 0=Sun, 1=Mon ... 6=Sat
+  document.querySelectorAll('#hours-table tr[data-day]').forEach(row => {
+    if (parseInt(row.getAttribute('data-day')) === todayDay) {
+      row.classList.add('today');
+    }
+  });
+
   function showMenu(type, btn) {
     ['food','drinks','specials'].forEach(t => {
       document.getElementById('menu-' + t).style.display = t === type ? 'grid' : 'none';
     });
     document.querySelectorAll('.menu-tab').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
+    // Show section jump buttons only for food tab
+    document.getElementById('food-section-btns').style.display = type === 'food' ? 'flex' : 'none';
   }
 </script>
 
 </body>
 </html>
+
