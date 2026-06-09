@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patrick's Pub & Restaurant – Croydon, PA</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #B8860B;
+    --gold-light: #D4A017;
+    --gold-pale: #FFF8E7;
+    --dark: #1A1208;
+    --dark-mid: #2D2210;
+    --charcoal: #3B3020;
+    --cream: #FAF6EE;
+    --text: #2D2210;
+    --text-muted: #6B5A3A;
+    --border: rgba(184,134,11,0.2);
+    --white: #fff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: var(--cream);
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--dark);
+    border-bottom: 1px solid var(--gold);
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--gold-light);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 0;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0 1rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s, background 0.2s;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+  }
+  .nav-links a:hover { color: var(--gold-light); background: rgba(255,255,255,0.05); }
+  .nav-cta {
+    background: var(--gold) !important;
+    color: var(--dark) !important;
+    font-weight: 600 !important;
+    padding: 0 1.2rem !important;
+    border-radius: 3px;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; }
+
+  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--gold-light); margin: 5px 0; transition: 0.3s; }
+  .mobile-menu { display: none; background: var(--dark); border-top: 1px solid var(--border); }
+  .mobile-menu a { display: block; color: rgba(255,255,255,0.85); text-decoration: none; padding: 1rem 2rem; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.9rem; letter-spacing: 0.03em; }
+  .mobile-menu a:hover { background: rgba(255,255,255,0.05); color: var(--gold-light); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--dark);
+    color: white;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 6rem 2rem;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1514190051997-0f6f39ca5cde?w=1600&q=80') center/cover no-repeat;
+    opacity: 0.18;
+  }
+  .hero-content { position: relative; max-width: 760px; }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 1.25rem;
+    border: 1px solid var(--gold);
+    padding: 0.35rem 1rem;
+    border-radius: 2px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    line-height: 1.08;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    color: white;
+  }
+  .hero h1 em { color: var(--gold-light); font-style: normal; }
+  .hero p {
+    font-size: 1.125rem;
+    color: rgba(255,255,255,0.75);
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+  }
+  .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.85rem 2rem;
+    border-radius: 3px;
+    font-size: 0.95rem;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.02em;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-outline {
+    border: 1.5px solid rgba(255,255,255,0.4);
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.85rem 2rem;
+    border-radius: 3px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); background: rgba(255,255,255,0.05); }
+
+  /* ── INFO BAR ── */
+  .info-bar {
+    background: var(--gold);
+    color: var(--dark);
+    padding: 0.75rem 2rem;
+    text-align: center;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .info-bar a { color: var(--dark); text-decoration: underline; }
+
+  /* ── SECTIONS ── */
+  section { padding: 5rem 2rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+  .section-body {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    max-width: 560px;
+    line-height: 1.75;
+  }
+
+  /* ── ABOUT ── */
+  .about { background: var(--white); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .about-img {
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+  .about-img img { width: 100%; display: block; height: 400px; object-fit: cover; }
+  .about-img::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gold);
+  }
+  .about-text .btn-primary { display: inline-block; margin-top: 1.5rem; }
+
+  /* ── FEATURES (3-up) ── */
+  .features { background: var(--cream); }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3.5rem;
+  }
+  .feature-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--gold);
+    border-radius: 4px;
+    padding: 2rem 1.75rem;
+  }
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--gold-pale);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    font-size: 1.4rem;
+  }
+  .feature-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+  }
+  .feature-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
+  .feature-card a {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 0.88rem;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+  }
+  .feature-card a:hover { text-decoration: underline; }
+
+  /* ── MENU PREVIEW ── */
+  .menu-section { background: var(--dark-mid); }
+  .menu-section .section-title { color: white; }
+  .menu-section .section-body { color: rgba(255,255,255,0.65); }
+  .menu-section .section-label { color: var(--gold-light); }
+  .menu-header { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem; }
+  .menu-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1.5rem; }
+  .menu-tab {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.7);
+    padding: 0.5rem 1.25rem;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    transition: 0.2s;
+  }
+  .menu-tab:hover, .menu-tab.active { background: var(--gold); border-color: var(--gold); color: var(--dark); }
+  .menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden; }
+  .menu-item {
+    background: var(--dark);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+  }
+  .menu-item:hover { background: var(--dark-mid); }
+  .menu-item-name { font-weight: 500; color: white; font-size: 0.95rem; }
+  .menu-item-desc { font-size: 0.82rem; color: rgba(255,255,255,0.45); margin-top: 0.2rem; }
+  .menu-item-price { color: var(--gold-light); font-weight: 600; font-size: 0.95rem; white-space: nowrap; flex-shrink: 0; }
+  .menu-divider { grid-column: 1 / -1; background: rgba(255,255,255,0.06); padding: 0.6rem 1.5rem; }
+  .menu-divider span { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+  .menu-cta { text-align: center; margin-top: 3rem; }
+  .menu-cta a { display: inline-block; border: 1.5px solid var(--gold); color: var(--gold-light); text-decoration: none; font-weight: 600; padding: 0.85rem 2.5rem; border-radius: 3px; font-size: 0.95rem; transition: 0.2s; letter-spacing: 0.03em; }
+  .menu-cta a:hover { background: var(--gold); color: var(--dark); }
+
+  /* ── EVENTS ── */
+  .events { background: var(--white); }
+  .events-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; margin-top: 3rem; }
+  .event-card { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+  .event-date-bar { background: var(--gold); padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; }
+  .event-day { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--dark); line-height: 1; }
+  .event-month { font-size: 0.8rem; font-weight: 600; color: var(--dark); text-transform: uppercase; letter-spacing: 0.1em; }
+  .event-body { padding: 1.25rem; }
+  .event-body h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--dark); margin-bottom: 0.4rem; }
+  .event-body p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+  .event-time { display: inline-block; margin-top: 0.75rem; font-size: 0.8rem; font-weight: 600; color: var(--gold); letter-spacing: 0.04em; }
+
+  /* ── REVIEWS ── */
+  .reviews { background: var(--cream); }
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; margin-top: 3rem; }
+  .review-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; padding: 1.75rem; }
+  .stars { color: var(--gold); font-size: 1rem; margin-bottom: 1rem; letter-spacing: 0.08em; }
+  .review-card blockquote { font-size: 0.95rem; color: var(--text-muted); line-height: 1.75; font-style: italic; margin-bottom: 1rem; }
+  .reviewer { font-weight: 600; font-size: 0.88rem; color: var(--dark); }
+
+  /* ── HOURS + LOCATION ── */
+  .location-section { background: var(--dark); color: white; }
+  .location-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4rem; }
+  .location-col h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--gold-light); margin-bottom: 1.25rem; }
+  .hours-table { width: 100%; border-collapse: collapse; }
+  .hours-table td { padding: 0.4rem 0; font-size: 0.9rem; }
+  .hours-table td:first-child { color: rgba(255,255,255,0.6); }
+  .hours-table td:last-child { text-align: right; color: white; font-weight: 500; }
+  .hours-table tr.today td { color: var(--gold-light); }
+  .hours-table tr.today td:last-child { color: var(--gold-light); }
+  .contact-item { display: flex; gap: 0.75rem; margin-bottom: 1rem; align-items: flex-start; }
+  .contact-icon { font-size: 1rem; color: var(--gold); margin-top: 2px; flex-shrink: 0; }
+  .contact-item p { font-size: 0.9rem; color: rgba(255,255,255,0.75); line-height: 1.5; }
+  .contact-item a { color: var(--gold-light); text-decoration: none; }
+  .contact-item a:hover { text-decoration: underline; }
+  .social-links { display: flex; gap: 0.75rem; margin-top: 1.5rem; }
+  .social-link {
+    width: 38px; height: 38px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.85rem;
+    transition: 0.2s;
+  }
+  .social-link:hover { border-color: var(--gold); color: var(--gold-light); }
+  .map-embed { border-radius: 4px; overflow: hidden; height: 220px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; }
+  .map-embed iframe { width: 100%; height: 100%; border: none; display: block; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--dark-mid); border-top: 1px solid rgba(255,255,255,0.08); padding: 1.5rem 2rem; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-inner p { font-size: 0.82rem; color: rgba(255,255,255,0.35); }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.4); text-decoration: none; }
+  .footer-links a:hover { color: var(--gold-light); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .hamburger { display: block; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .features-grid { grid-template-columns: 1fr; }
+    .menu-grid { grid-template-columns: 1fr; }
+    .events-grid { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .location-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .footer-inner { flex-direction: column; text-align: center; }
+  }
+  @media (max-width: 600px) {
+    section { padding: 3.5rem 1.25rem; }
+    .hero { padding: 4rem 1.25rem; min-height: auto; }
+    .menu-header { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Patrick's Pub &amp; Restaurant</a>
+    <ul class="nav-links">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#location">Hours &amp; Location</a></li>
+      <li><a href="tel:+1" class="nav-cta">Reserve a Table</a></li>
+    </ul>
+    <button class="hamburger" onclick="document.getElementById('mobileMenu').style.display = document.getElementById('mobileMenu').style.display === 'block' ? 'none' : 'block'" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#menu">Menu</a>
+    <a href="#events">Events &amp; Specials</a>
+    <a href="#about">About Us</a>
+    <a href="#location">Hours &amp; Location</a>
+    <a href="tel:+1">Reserve a Table</a>
+  </div>
+</nav>
+
+<!-- INFO BAR -->
+<div class="info-bar">
+  🍀 Father's Day Weekend — Join us for brunch, specials &amp; live music! &nbsp;<a href="#events">See what's on →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="hero-eyebrow">Croydon, Pennsylvania</span>
+    <h1>Good Food.<br><em>Great Company.</em></h1>
+    <p>A neighborhood pub and restaurant serving hearty American fare, classic bar bites, and cold drafts. Locals since day one.</p>
+    <div class="hero-actions">
+      <a href="#menu" class="btn-primary">View Our Menu</a>
+      <a href="#location" class="btn-outline">Hours &amp; Directions</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES 3-UP -->
+<section class="features" id="about">
+  <div class="section-inner">
+    <div style="text-align:center; margin-bottom: 1rem;">
+      <p class="section-label">What we offer</p>
+      <h2 class="section-title" style="margin: 0 auto;">Everything you need for a great night out</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🍺</div>
+        <h3>Full Bar</h3>
+        <p>Craft beers on tap, wine, cocktails, and your favorite spirits. Happy hour runs Monday through Friday, 3–6 PM.</p>
+        <a href="#menu">See drink menu →</a>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🍔</div>
+        <h3>Kitchen Open Late</h3>
+        <p>From hearty burgers and wings to cheesesteaks, pasta, and fresh salads — real food made to order every night.</p>
+        <a href="#menu">See food menu →</a>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎉</div>
+        <h3>Private Events</h3>
+        <p>Birthday parties, work gatherings, sports watch parties — we'll set up the space and take care of the food.</p>
+        <a href="#location">Get in touch →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-img">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80" alt="Interior of Patrick's Pub" loading="lazy">
+      </div>
+      <div class="about-text">
+        <p class="section-label">Our story</p>
+        <h2 class="section-title">A real neighborhood bar in the heart of Croydon</h2>
+        <p class="section-body">Patrick's Pub &amp; Restaurant has been a fixture on Bristol Pike for years. We're not a chain, not a franchise — just a place where the beer is cold, the food is honest, and everybody knows your name by the second visit.</p>
+        <p class="section-body" style="margin-top:1rem;">Whether you're stopping in after work, watching the Eagles game, or celebrating something special, our team is here to make sure it's a night worth coming back for.</p>
+        <a href="#location" class="btn-primary">Find Us at 505 Bristol Pike</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+  <div class="section-inner">
+    <div class="menu-header">
+      <div>
+        <p class="section-label">What's cooking</p>
+        <h2 class="section-title">Our Menu</h2>
+      </div>
+      <div class="menu-tabs">
+        <button class="menu-tab active" onclick="showMenu('food', this)">Food</button>
+        <button class="menu-tab" onclick="showMenu('drinks', this)">Drinks</button>
+        <button class="menu-tab" onclick="showMenu('specials', this)">Daily Specials</button>
+      </div>
+    </div>
+
+    <!-- FOOD MENU -->
+    <div id="menu-food" class="menu-grid">
+      <div class="menu-divider"><span>Starters &amp; Shareables</span></div>
+      <div class="menu-item">
+        <div><div class="menu-item-name">Loaded Nachos</div><div class="menu-item-desc">Jalapeños, cheddar, pico, sour cream</div></div>
+        <div class="menu-item-price">$12</div>
+      </div>
+      <div class="menu-item">
+        <div><div class="menu-item-name">Buffalo Wings</div><div class="menu-item-desc">Choice of sauce, celery &amp; blue cheese</div></div>
+        <div class="menu-item-price">$14</div>
+      </div>
+      <div class="menu-item">
+        <div><div class="menu-item-name">Mozzarella Sticks</div><div class="menu-item-desc">Served with marinara</div></div>
+        <div class="menu-item-price">$9</div>
+      </div>
+      <div class="menu-item">
+        <div><div class="menu-item-name">Pub Sampler</div><div class="menu-item-desc">Wings, sticks, onion rings, fingers</div></div>
+        <div class="menu-item-price">$18</div>
+      </div>
+      <div class="menu-divider"><span>Burgers &amp; Sandwiches</span></div>
+      <div class="menu-item">
+        <div><div class="menu-item-name">Patrick's Burger</div><div class="menu-item-desc">8oz beef, cheddar, LTO, brioche bun</div></div>
+        <div class="menu-item-price">$14</div>
+      </div>
+      <div class="menu-item">
+        <div><div class="menu-item-name">Cheesesteak</div><div class="menu-item-desc">Ribeye, wiz or American, your way</div></div>
+        <div class="menu-item-price">$13</div>
+      </div>
+      <div class="menu-item">
+        <div><div class="menu-item-name">Grilled Chicken Sandwich</div><div class="menu-item-desc">Roasted peppers, provolone, brioche</div></div>
+        <div class="menu-item-price">$13</div>
+      </div>
+      <div class="menu-item">
+        <div><div class="menu-item-name">BLT Club</div><div class="menu-item-desc">Triple decker, fries included</div></div>
+        <div class="menu-item-price">$13</div>
+      </div>
+      <div class="menu-divider"><span>Mains &amp; Plates</span></div>
+      <div class="menu-item">
+        <div><div class="menu-item-name">Fish &amp; Chips</div><div class="menu-item-desc">Beer-battered cod, tartar, malt vinegar</div></div>
+        <div class="menu-item-price">$17</div>
+      </div>
+      <div class="menu-item">
+        <div><div class="menu-item-name">Shepherd's Pie</div><div class="menu-item-desc">Ground beef, root veg, mashed potato</div></div>
+        <div class="menu-item-price">$16</div>
+      </div>
+      <div class="menu-item">
+        <div><div class="menu-item-name">Chicken Parmigiana</div><div class="menu-item-desc">Marinara, mozzarella, pasta side</div></div>
+        <div class="menu-item-price">$18</div>
+      </div>
+      <div class="menu-item">
+        <div><div class="menu-item-name">Pasta Vodka</div><div class="menu-item-desc">Penne, pink cream sauce, fresh basil</div></div>
+        <div class="menu-item-price">$15</div>
+      </div>
+    </div>
+
+    <!-- DRINKS MENU -->
+    <div id="menu-drinks" class="menu-grid" style="display:none">
+      <div class="menu-divider"><span>Drafts on Tap</span></div>
+      <div class="menu-item"><div><div class="menu-item-name">Yuengling Lager</div><div class="menu-item-desc">Pennsylvania's own</div></div><div class="menu-item-price">$5</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Guinness Stout</div><div class="menu-item-desc">Nitro pour, perfectly settled</div></div><div class="menu-item-price">$7</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Blue Moon</div><div class="menu-item-desc">With an orange slice</div></div><div class="menu-item-price">$6</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Rotating Craft</div><div class="menu-item-desc">Ask your server for today's pick</div></div><div class="menu-item-price">$7</div></div>
+      <div class="menu-divider"><span>Cocktails</span></div>
+      <div class="menu-item"><div><div class="menu-item-name">Patrick's Old Fashioned</div><div class="menu-item-desc">Bourbon, bitters, orange peel</div></div><div class="menu-item-price">$11</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Irish Mule</div><div class="menu-item-desc">Jameson, ginger beer, lime</div></div><div class="menu-item-price">$10</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">House Sangria</div><div class="menu-item-desc">Red or white, seasonal fruit</div></div><div class="menu-item-price">$9</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Long Island Iced Tea</div><div class="menu-item-desc">The classic, done right</div></div><div class="menu-item-price">$11</div></div>
+    </div>
+
+    <!-- SPECIALS MENU -->
+    <div id="menu-specials" class="menu-grid" style="display:none">
+      <div class="menu-divider"><span>Daily Specials</span></div>
+      <div class="menu-item"><div><div class="menu-item-name">Monday — Wing Night</div><div class="menu-item-desc">50¢ wings all night, any sauce</div></div><div class="menu-item-price">All Night</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Tuesday — Taco Tuesday</div><div class="menu-item-desc">$2 tacos, $5 margaritas</div></div><div class="menu-item-price">All Night</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Wed — Burger &amp; Beer</div><div class="menu-item-desc">Burger + domestic draft for $16</div></div><div class="menu-item-price">$16</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Thursday — Trivia Night</div><div class="menu-item-desc">$3 pints during trivia rounds</div></div><div class="menu-item-price">8 PM</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Fri &amp; Sat — Happy Hour</div><div class="menu-item-desc">$1 off all drafts &amp; well drinks, 3–6 PM</div></div><div class="menu-item-price">3–6 PM</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Sunday — Brunch</div><div class="menu-item-desc">Bottomless mimosas &amp; brunch plates</div></div><div class="menu-item-price">11 AM–3 PM</div></div>
+    </div>
+
+    <div class="menu-cta"><a href="#location">Full menu available in-house &amp; at the bar →</a></div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="events" id="events">
+  <div class="section-inner">
+    <p class="section-label">Coming up</p>
+    <h2 class="section-title">Events &amp; Entertainment</h2>
+    <div class="events-grid">
+      <div class="event-card">
+        <div class="event-date-bar">
+          <div>
+            <div class="event-day">15</div>
+            <div class="event-month">Jun</div>
+          </div>
+        </div>
+        <div class="event-body">
+          <h3>Father's Day Brunch</h3>
+          <p>Treat Dad to bottomless mimosas, a special brunch menu, and live acoustic music all afternoon.</p>
+          <span class="event-time">11 AM – 4 PM</span>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-date-bar">
+          <div>
+            <div class="event-day">19</div>
+            <div class="event-month">Jun</div>
+          </div>
+        </div>
+        <div class="event-body">
+          <h3>Thursday Trivia Night</h3>
+          <p>Teams of up to 6 compete for bar tabs and bragging rights. $3 pints throughout the night.</p>
+          <span class="event-time">8 PM – 10 PM</span>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-date-bar">
+          <div>
+            <div class="event-day">28</div>
+            <div class="event-month">Jun</div>
+          </div>
+        </div>
+        <div class="event-body">
+          <h3>Live Music Night</h3>
+          <p>Local band on the back patio. No cover charge. Grab a seat early — it fills up fast.</p>
+          <span class="event-time">7 PM – 10 PM</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="section-inner">
+    <div style="text-align:center;">
+      <p class="section-label">What people are saying</p>
+      <h2 class="section-title">Regulars love Patrick's</h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Best cheesesteak in Croydon, hands down. The staff remember your name after one visit. Classic neighborhood bar — exactly what this area needed."</blockquote>
+        <span class="reviewer">— Mike D., Google Review</span>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"We booked the back room for a birthday party and it was perfect. Great food, easy setup, and the bartenders kept everyone happy all night."</blockquote>
+        <span class="reviewer">— Sarah T., Google Review</span>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Wing night on Mondays is unbeatable. Cold beer, 50-cent wings, and a TV for every game. You really can't ask for more from a local pub."</blockquote>
+        <span class="reviewer">— Joe R., Google Review</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS & LOCATION -->
+<section class="location-section" id="location">
+  <div class="section-inner">
+    <div class="location-grid">
+      <div class="location-col">
+        <h3>Hours</h3>
+        <table class="hours-table">
+          <tr><td>Monday</td><td>11 AM – 12 AM</td></tr>
+          <tr><td>Tuesday</td><td>11 AM – 12 AM</td></tr>
+          <tr><td>Wednesday</td><td>11 AM – 12 AM</td></tr>
+          <tr class="today"><td>Thursday</td><td>11 AM – 1 AM</td></tr>
+          <tr><td>Friday</td><td>11 AM – 2 AM</td></tr>
+          <tr><td>Saturday</td><td>11 AM – 2 AM</td></tr>
+          <tr><td>Sunday</td><td>11 AM – 11 PM</td></tr>
+        </table>
+        <p style="font-size:0.78rem; color:rgba(255,255,255,0.35); margin-top:1rem;">Kitchen closes 1 hour before bar close.</p>
+      </div>
+
+      <div class="location-col">
+        <h3>Find Us</h3>
+        <div class="contact-item">
+          <span class="contact-icon">📍</span>
+          <p>505 Bristol Pike<br>Croydon, PA 19021</p>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">📞</span>
+          <p><a href="tel:+1">Call us to reserve</a></p>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">✉️</span>
+          <p><a href="mailto:info@patrickspubpa.com">info@patrickspubpa.com</a></p>
+        </div>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook">f</a>
+          <a href="#" class="social-link" aria-label="Instagram">ig</a>
+          <a href="#" class="social-link" aria-label="Google">G</a>
+        </div>
+      </div>
+
+      <div class="location-col">
+        <h3>Map</h3>
+        <div class="map-embed">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3047.88!2d-74.9!3d40.09!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s505+Bristol+Pike%2C+Croydon%2C+PA+19021!5e0!3m2!1sen!2sus!4v1"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Patrick's Pub location map">
+          </iframe>
+        </div>
+        <a href="https://maps.google.com/?q=505+Bristol+Pike+Croydon+PA+19021" target="_blank" style="display:inline-block; margin-top:0.75rem; font-size:0.85rem; color:var(--gold-light); text-decoration:none;">Get directions →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 Patrick's Pub &amp; Restaurant · 505 Bristol Pike, Croydon, PA 19021</p>
+    <div class="footer-links">
+      <a href="#menu">Menu</a>
+      <a href="#events">Events</a>
+      <a href="#location">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function showMenu(type, btn) {
+    ['food','drinks','specials'].forEach(t => {
+      document.getElementById('menu-' + t).style.display = t === type ? 'grid' : 'none';
+    });
+    document.querySelectorAll('.menu-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
